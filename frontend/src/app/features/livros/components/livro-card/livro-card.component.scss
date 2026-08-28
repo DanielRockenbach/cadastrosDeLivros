@@ -1,0 +1,12 @@
+.book-card { display: grid; grid-template-columns: 112px 1fr; gap: 20px; padding: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.55); transition: transform .2s, box-shadow .2s; }
+.book-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(23,34,29,.08); }
+.book-cover { min-height: 155px; display: flex; flex-direction: column; justify-content: space-between; padding: 12px; color: #f8f6ed; background: #176b51; }
+.book-cover.borrowed { background: #ba6547; }
+.book-cover span { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.book-cover strong { font: 700 58px/1 'Space Grotesk'; opacity: .9; }
+.book-meta { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.book-meta span:last-child { color: #ba6547; } .book-meta .available { color: var(--green); }
+h3 { margin: 26px 0 5px; font: 600 22px 'Space Grotesk'; } p { margin: 0; color: var(--muted); font-size: 14px; }
+.card-actions { display: flex; align-items: center; gap: 12px; margin-top: 22px; font-size: 13px; } .card-actions a { color: var(--green); font-weight: 700; } .card-actions a span { font-size: 18px; }
+.card-actions button { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 12px; padding: 0; } .card-actions .delete { margin-left: auto; font-size: 22px; color: #a34f3a; }
+@media (max-width: 480px) { .book-card { grid-template-columns: 84px 1fr; gap: 12px; padding: 12px; } .book-cover { min-height: 130px; } .book-cover strong { font-size: 42px; } h3 { font-size: 18px; margin-top: 20px; } .card-actions { flex-wrap: wrap; } }

@@ -1,0 +1,9 @@
+<form #form="ngForm" (ngSubmit)="enviar(form)" novalidate>
+  <div class="form-heading"><span class="eyebrow">Novo registro</span><h2>Adicionar à estante</h2></div>
+  <label>Título *<input name="titulo" [(ngModel)]="livro.titulo" required placeholder="Ex.: O Estrangeiro" /></label>
+  <label>Autor *<input name="autor" [(ngModel)]="livro.autor" required placeholder="Nome do autor" /></label>
+  <div class="form-grid"><label>Categoria *<select name="categoria" [(ngModel)]="livro.categoria" required><option>Tecnologia</option><option>Literatura</option><option>Negócios</option><option>Ciência</option><option>História</option></select></label><label>Ano *<input name="ano" type="number" [(ngModel)]="livro.ano" required min="1000" max="2100" /></label></div>
+  <label>Descrição<textarea name="descricao" [(ngModel)]="livro.descricao" rows="3" placeholder="Uma breve descrição..."></textarea></label>
+  @if (erro()) { <p class="form-error">{{ erro() }}</p> }
+  <div class="form-actions"><button type="button" class="text-button" (click)="cancelar.emit()">Cancelar</button><button class="primary" type="submit">Salvar livro <span>→</span></button></div>
+</form>

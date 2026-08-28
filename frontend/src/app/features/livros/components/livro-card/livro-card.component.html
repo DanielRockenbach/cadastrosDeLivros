@@ -1,0 +1,16 @@
+<article class="book-card">
+  <div class="book-cover" [class.borrowed]="livro().status === 'emprestado'">
+    <span>{{ livro().categoria }}</span>
+    <strong>{{ livro().titulo.charAt(0) }}</strong>
+  </div>
+  <div class="book-info">
+    <div class="book-meta"><span>#{{ livro().id.toString().padStart(2, '0') }}</span><span [class.available]="livro().status === 'disponivel'">{{ livro().status }}</span></div>
+    <h3>{{ livro().titulo }}</h3>
+    <p>{{ livro().autor }} · {{ livro().ano }}</p>
+    <div class="card-actions">
+      <a [routerLink]="['/livros', livro().id]">Ver detalhes <span>↗</span></a>
+      <button type="button" (click)="alternarStatus.emit(livro())">{{ livro().status === 'disponivel' ? 'Emprestar' : 'Devolver' }}</button>
+      <button class="delete" type="button" aria-label="Excluir livro" (click)="excluir.emit(livro().id)">×</button>
+    </div>
+  </div>
+</article>

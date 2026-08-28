@@ -1,0 +1,8 @@
+<header class="topbar"><a class="brand" href="/livros"><span class="brand-mark">L</span> Lume<span>.</span></a><span class="top-note">Biblioteca pessoal <b>●</b></span></header>
+<main>
+  <section class="intro"><div><span class="eyebrow">Coleção · {{ livros().length }} títulos</span><h1>Uma boa história<br /><em>fica com você.</em></h1><p>Organize, descubra e acompanhe os livros que fazem parte da sua estante.</p></div><button class="primary add" (click)="mostrandoFormulario.set(true)">+ Novo livro</button></section>
+  <section class="toolbar"><div class="search"><span>⌕</span><input [(ngModel)]="busca" placeholder="Pesquisar por título, autor ou categoria" /></div><select [(ngModel)]="filtroStatus"><option value="todos">Todos os status</option><option value="disponivel">Disponíveis</option><option value="emprestado">Emprestados</option></select></section>
+  @if (erro()) { <div class="alert">{{ erro() }}</div> }
+  @if (carregando()) { <div class="empty">Carregando sua estante...</div> } @else if (!filtrados.length) { <div class="empty"><strong>Nenhum livro encontrado.</strong><span>Tente outro termo ou cadastre um novo título.</span></div> } @else { <section class="book-grid">@for (livro of filtrados; track livro.id) { <app-livro-card [livro]="livro" (alternarStatus)="alternarStatus($event)" (excluir)="excluir($event)" /> }</section> }
+</main>
+@if (mostrandoFormulario()) { <div class="modal-backdrop" (click)="mostrandoFormulario.set(false)"><div class="modal" (click)="$event.stopPropagation()"><app-formulario-livro (salvar)="salvar($event)" (cancelar)="mostrandoFormulario.set(false)" /></div></div> }
