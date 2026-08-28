@@ -1,1 +1,24 @@
-.topbar { display: flex; justify-content: space-between; align-items: center; padding: 24px max(24px, calc((100% - 1120px)/2)); border-bottom: 1px solid var(--line); } .brand { font: 700 25px 'Space Grotesk'; } .brand span:last-child { color: #ba6547; } .brand-mark { display: inline-grid; place-items: center; width: 30px; height: 30px; margin-right: 7px; background: var(--lime); color: var(--green); font-size: 18px; } .top-note { color: var(--muted); font-size: 12px; } .top-note b { color: var(--green); margin-left: 7px; } main { max-width: 1120px; margin: auto; padding: 74px 24px; } .intro { display: flex; justify-content: space-between; align-items: end; gap: 30px; } .eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; } h1 { margin: 12px 0 14px; font: 700 clamp(42px, 6vw, 76px)/.95 'Space Grotesk'; letter-spacing: -2px; } h1 em { color: var(--green); font-style: normal; } .intro p { max-width: 420px; color: var(--muted); line-height: 1.6; } .primary { background: var(--green); color: white; border: 0; padding: 14px 20px; cursor: pointer; font-weight: 700; } .add { white-space: nowrap; } .toolbar { display: flex; gap: 12px; margin: 65px 0 24px; border-top: 1px solid var(--line); padding-top: 18px; } .search { display: flex; align-items: center; flex: 1; gap: 10px; border-bottom: 1px solid #aeb9b0; } .search span { font-size: 25px; color: var(--green); } .search input, select { border: 0; background: transparent; padding: 12px 0; outline: none; color: var(--ink); } select { border-bottom: 1px solid #aeb9b0; min-width: 150px; } .book-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; } .alert { padding: 14px; background: #fae5dc; color: #93442f; margin-bottom: 20px; } .empty { display: grid; gap: 8px; padding: 70px 20px; text-align: center; color: var(--muted); } .empty strong { color: var(--ink); font: 600 20px 'Space Grotesk'; } .modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(23,34,29,.45); z-index: 2; } .modal { width: min(100%, 500px); } @media (max-width: 700px) { main { padding-top: 45px; } .intro { display: block; } .add { margin-top: 25px; } .toolbar { display: block; margin-top: 40px; } select { width: 100%; margin-top: 12px; } .book-grid { grid-template-columns: 1fr; } .top-note { display: none; } }
+.topbar { align-items: center; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 20px max(24px, calc((100% - 1120px) / 2)); }
+.brand { color: var(--ink); font-size: 22px; font-weight: 700; }
+.top-note { color: var(--muted); font-size: 13px; }
+main { margin: 0 auto; max-width: 1120px; padding: 56px 24px; }
+.intro { align-items: end; display: flex; gap: 24px; justify-content: space-between; }
+.eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.05; margin: 12px 0; }
+h1 em { color: var(--green); font-style: normal; }
+.intro p { color: var(--muted); line-height: 1.5; max-width: 430px; }
+.primary { background: var(--green); border: 0; color: #fff; cursor: pointer; font-weight: 700; padding: 12px 18px; }
+.add { white-space: nowrap; }
+.toolbar { align-items: center; border-top: 1px solid var(--line); display: flex; gap: 16px; margin: 48px 0 24px; padding-top: 16px; }
+.search { align-items: center; border: 1px solid var(--line); display: flex; flex: 1; gap: 8px; padding: 0 12px; }
+.search span { color: var(--green); font-size: 22px; }
+.search input, select { background: #fff; border: 0; color: var(--ink); outline: none; padding: 12px; }
+.search input { flex: 1; }
+select { border: 1px solid var(--line); min-width: 160px; }
+.book-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
+.alert { background: #fce8e6; color: #a33b32; margin-bottom: 20px; padding: 14px; }
+.empty { color: var(--muted); display: grid; gap: 8px; padding: 64px 20px; text-align: center; }
+.empty strong { color: var(--ink); font-size: 20px; }
+.modal-backdrop { align-items: center; background: rgba(32, 33, 36, .4); display: grid; inset: 0; justify-items: center; padding: 20px; position: fixed; z-index: 2; }
+.modal { max-width: 500px; width: 100%; }
+@media (max-width: 700px) { main { padding-top: 36px; } .intro { align-items: start; display: block; } .add { margin-top: 20px; } .toolbar { align-items: stretch; display: block; margin-top: 36px; } select { margin-top: 10px; width: 100%; } .book-grid { grid-template-columns: 1fr; } }
