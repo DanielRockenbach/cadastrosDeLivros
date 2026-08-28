@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class LivrosService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/api/livros';
+  private readonly apiUrl = 'https://cadastrosdelivros-ws.onrender.com/api/livros';
 
   listar(): Observable<Livro[]> { return this.http.get<Livro[]>(this.apiUrl); }
   buscarPorId(id: number): Observable<Livro> { return this.http.get<Livro>(`${this.apiUrl}/${id}`); }
