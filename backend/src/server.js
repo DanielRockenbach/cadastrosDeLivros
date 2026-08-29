@@ -27,7 +27,6 @@ async function conectarMongo() {
 async function listar() { return collection ? collection.find({}).sort({ id: 1 }).toArray() : livros; }
 async function buscar(id) { return collection ? collection.findOne({ id }) : livros.find((livro) => livro.id === id); }
 
-app.get('/', (req, res) => res.redirect('https://cadastrosdelivros-frontend.onrender.com'));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', storage: collection ? 'mongodb' : 'memory' }));
 app.get('/api/livros', async (req, res) => { try { res.json(await listar()); } catch (error) { res.status(500).json({ erro: 'Falha ao listar livros.' }); } });
 app.get('/api/livros/:id', async (req, res) => { const livro = await buscar(Number(req.params.id)); if (!livro) return res.status(404).json({ erro: 'Livro não encontrado.' }); res.json(livro); });
