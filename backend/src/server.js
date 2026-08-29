@@ -27,16 +27,7 @@ async function conectarMongo() {
 async function listar() { return collection ? collection.find({}).sort({ id: 1 }).toArray() : livros; }
 async function buscar(id) { return collection ? collection.findOne({ id }) : livros.find((livro) => livro.id === id); }
 
-app.get('/', (req, res) => res.send(`
-  <main style="font-family: sans-serif; max-width: 720px; margin: 60px auto; line-height: 1.6">
-    <h1>Lume | Biblioteca de livros</h1>
-    <p>Escolha o recurso que deseja acessar:</p>
-    <ul>
-      <li><a href="https://cadastrosdelivros-frontend.onrender.com">Abrir interface da biblioteca</a></li>
-      <li><a href="/api/livros">Consultar API de livros</a></li>
-    </ul>
-  </main>
-`));
+app.get('/', (req, res) => res.redirect('https://cadastrosdelivros-frontend.onrender.com'));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', storage: collection ? 'mongodb' : 'memory' }));
 app.get('/api/livros', async (req, res) => { try { res.json(await listar()); } catch (error) { res.status(500).json({ erro: 'Falha ao listar livros.' }); } });
 app.get('/api/livros/:id', async (req, res) => { const livro = await buscar(Number(req.params.id)); if (!livro) return res.status(404).json({ erro: 'Livro não encontrado.' }); res.json(livro); });
