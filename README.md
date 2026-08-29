@@ -2,6 +2,11 @@
 
 Aplicacao final do modulo M7: Angular + TypeScript no frontend, API REST Node.js/Express e persistencia MongoDB Atlas no backend.
 
+## Aplicacao publicada
+
+- [Acessar interface frontend](https://cadastrosdelivros-frontend.onrender.com)
+- [Acessar API](https://cadastrosdelivros-ws.onrender.com/api/livros)
+
 ## Executar localmente
 
 ```powershell
