@@ -1,13 +1,46 @@
-# Lume | Biblioteca de livros
+# M7 - Biblioteca de Livros
 
-Aplicacao final do modulo M7: Angular + TypeScript no frontend, API REST Node.js/Express e persistencia MongoDB Atlas no backend.
+## Aluno
+Daniel Amaral Rockenbach
 
-## Aplicacao publicada
+## Objetivo
 
-- [Acessar interface frontend](https://cadastrosdelivros-frontend.onrender.com)
-- [Acessar API](https://cadastrosdelivros-ws.onrender.com/api/livros)
+Implementar uma aplicação frontend com Angular e TypeScript, integrada com um backend API REST em Node.js/Express e persistência de dados em MongoDB Atlas.
 
-## Executar localmente
+## Funcionalidades
+
+- Listagem de livros
+- Pesquisa por título
+- Filtro por categoria/gênero
+- Página de detalhes do livro
+- Criar novo livro
+- Editar livro existente
+- Deletar livro
+- Indicador de carregamento
+- Tratamento de erro
+- Lista vazia com mensagem
+
+## Rotas
+
+- `/`
+- `/livros`
+- `/livros/:id`
+- `/livros/novo`
+- `/livros/:id/editar`
+
+## Comandos
+
+### Frontend
+
+```powershell
+cd frontend
+npm install
+npm start
+```
+
+Acesse `http://localhost:4200/livros`
+
+### Backend
 
 ```powershell
 cd backend
@@ -16,17 +49,21 @@ Copy-Item .env.example .env
 npm run dev
 ```
 
-Em outro terminal:
+Sem `MONGODB_URI`, a API inicia com dados de demonstração em memória.
+
+### Compilação TypeScript
 
 ```powershell
-cd frontend
-npm install
-npm start
+npx tsc --noEmit
 ```
 
-Acesse `http://localhost:4200/livros`. Sem `MONGODB_URI`, a API inicia com dados de demonstracao em memoria. Para persistencia real, preencha apenas o `.env` local com a string do MongoDB Atlas; ele e ignorado pelo Git.
+### Build para Produção
 
-## Endpoints
+```powershell
+npm run build
+```
+
+## Endpoints da API
 
 - `GET /api/livros`
 - `GET /api/livros/:id`
@@ -35,6 +72,7 @@ Acesse `http://localhost:4200/livros`. Sem `MONGODB_URI`, a API inicia com dados
 - `DELETE /api/livros/:id`
 - `GET /api/health`
 
-## Publicacao no Render
+## Aplicação Publicada
 
-Crie um Web Service apontando para `backend`, comando `npm start`, e configure `MONGODB_URI` e `MONGODB_DB`. Crie um Static Site apontando para `frontend`, comando de build `npm install && npm run build`, publicando `frontend/dist/frontend/browser` (ou a pasta indicada pelo build). Antes do deploy, altere `apiUrl` em `frontend/src/app/features/livros/services/livros.service.ts` para a URL pública da API.
+- [Interface Frontend](https://cadastrosdelivros-frontend.onrender.com)
+- [API REST](https://cadastrosdelivros-ws.onrender.com/api/livros)
